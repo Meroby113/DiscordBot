@@ -33,9 +33,9 @@ async def on_message(message):
             await message.channel.send('No movie found for this category')
 
 
-TMDB_API_KEY = "0f30e15dbbfaebb3046bf90261fea537"
+tmdb_api_key = os.getenv('TMDB_API_KEY')
 def get_movie_by_category(category):
-    url = 'https://api.themoviedb.org/3/search/movie?api_key={TMDB_API_KEY}&query={category}'
+    url = 'https://api.themoviedb.org/3/search/movie?api_key={tmdb_api_key}&query={category}'
     headers = {
     "accept": "application/json",
     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZjMwZTE1ZGJiZmFlYmIzMDQ2YmY5MDI2MWZlYTUzNyIsIm5iZiI6MTcyMjQyMDU4Ny4xMTg0OTIsInN1YiI6IjY2YTlmODRmYmZjOWIyYTE4MmVlZmNhMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BFy5y9qZh44wSKPV7olin2v0D7BbeWxn35GXX1zLvac"
